@@ -3,12 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBS POD Store | Official</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DBS POD Store | Premium Custom Streetwear & Casual Wear</title>
+    <meta name="description" content="Shop premium custom streetwear, bespoke casual wear, and unique graphic apparel from DBS POD Store.">
+    <style>
+        /* Base Reset & Dark Mode Theme */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0b0b0b;
+            color: #f3f3f3;
+            line-height: 1.5;
+            padding-bottom: 60px;
+        }
+
+        /* Header Styling */
+        header {
+            background: #141414;
+            border-bottom: 1px solid #222;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Layout & Sections */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-top: 60px;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Product Grid Layout */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: #444;
+        }
+        .product-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            background: #1c1c1c;
+        }
+        .product-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .product-card p {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        /* Button Styling */
+        .shop-now {
+            background: #ffffff;
+            color: #0b0b0b;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .shop-now:hover {
+            background: #dcdcdc;
+        }
+
+        /* About Section */
+        #about {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        #about h2 {
+            margin-bottom: 15px;
+        }
+        #about p {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            color: #b0b0b0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>DBS POD</h1>
+        <h1>DBS POD Store</h1>
         <nav>
             <a href="#featured">Featured</a>
             <a href="#naturally">Naturally</a>
@@ -21,101 +165,125 @@
     <main>
         <!-- Presidential Lion Collection -->
         <section id="featured">
-            <h2 style="text-align: center; margin-top: 40px;">The DopeBoiz President Collection</h2>
+            <h2>The DopeBoiz President Collection</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="dopest-lion.png" alt="Golden Chrome Lion">
-                    <h3>Golden Chrome Lion</h3>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-golden-lion.png" alt="DBS POD Store Golden Chrome Lion Custom Streetwear Tee" loading="lazy">
+                    <div class="product-content">
+                        <h3>Golden Chrome Lion</h3>
+                        <p>Premium custom streetwear designed for bold, everyday casual wear.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
                 <div class="product-card">
-                    <img src="DBS-Lion2.png" alt="Silver Chrome Lion">
-                    <h3>Silver Chrome Lion</h3>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-silver-lion.png" alt="DBS POD Store Silver Chrome Lion Custom Streetwear Tee" loading="lazy">
+                    <div class="product-content">
+                        <h3>Silver Chrome Lion</h3>
+                        <p>Sleek monochrome bespoke styling built to stand out in any crowd.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Naturally Dope Section -->
         <section id="naturally">
-            <h2 style="text-align: center; margin-top: 40px;">Naturally Dope</h2>
+            <h2>Naturally Dope</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="Wired for creativity.png" alt="Wired for Creativity">
-                    <h3>Wired for Creativity</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">An illustration on how THC and CBD medically benefits the brain's functionability naturally with the presence of Endocannabinoid receptors in every human.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-wired-for-creativity.png" alt="DBS POD Store Wired for Creativity Graphic Apparel" loading="lazy">
+                    <div class="product-content">
+                        <h3>Wired for Creativity</h3>
+                        <p>An illustration on how THC and CBD medically benefits the brain's functionability naturally with the presence of Endocannabinoid receptors in every human.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
                 <div class="product-card">
-                    <img src="Purification.png" alt="The Purification">
-                    <h3>The Purification</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">An illustration of the heart showing how THC and CBD medically helps in the purification of our blood stream and regulates the pressure by giving a calming effect.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-purification.png" alt="DBS POD Store The Purification Graphic Casual Wear" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Purification</h3>
+                        <p>An illustration of the heart showing how THC and CBD medically helps in the purification of our blood stream and regulates the pressure by giving a calming effect.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
                 <div class="product-card">
-                    <img src="green eyes.png" alt="The Green Eyes">
-                    <h3>The Green Eyes</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">This is an educative illustration on how THC and CBD helps fight against some eye illness and give clear vision.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-green-eyes.png" alt="DBS POD Store The Green Eyes Custom Streetwear Design" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Green Eyes</h3>
+                        <p>This is an educative illustration on how THC and CBD helps fight against some eye illness and give clear vision.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Cultural Dope Section -->
         <section id="cultural">
-            <h2 style="text-align: center; margin-top: 40px;">Culturally Dope</h2>
+            <h2>Culturally Dope</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="Rhythmic heritage.png" alt="Rhythmic Heritage">
-                    <h3>Rhythmic Heritage</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">An illustration of a local "Omele" drum, a three-faced talking drum that emanates African motifs and Adinkra symbols.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-rhythmic-heritage.png" alt="DBS POD Store Rhythmic Heritage African Motif Apparel" loading="lazy">
+                    <div class="product-content">
+                        <h3>Rhythmic Heritage</h3>
+                        <p>An illustration of a local "Omele" drum, a three-faced talking drum that emanates African motifs and Adinkra symbols.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
                 <div class="product-card">
-                    <img src="the transformation.png" alt="The Transformation">
-                    <h3>The Transformation</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">An abstract illustration of the Benin Kingdom Ivory Mask, modernized, depicting the spiritual transformation that happens behind the mask.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-the-transformation.png" alt="DBS POD Store The Transformation Benin Mask Streetwear" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Transformation</h3>
+                        <p>An abstract illustration of the Benin Kingdom Ivory Mask, modernized, depicting the spiritual transformation that happens behind the mask.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
                 <div class="product-card">
-                    <img src="fruit of the loom.png" alt="The Fruit of the Loom">
-                    <h3>The Fruit of the Loom</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">An illustration of a loom being worked on, depicting the transition from ancient weaves into modernized fashion tech with digital currencies.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-fruit-of-the-loom.png" alt="DBS POD Store The Fruit of the Loom Bespoke Casual Wear" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Fruit of the Loom</h3>
+                        <p>An illustration of a loom being worked on, depicting the transition from ancient weaves into modernized fashion tech with digital currencies.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Lyrically Dope Section -->
         <section id="lyrics">
-            <h2 style="text-align: center; margin-top: 40px;">Lyrically Dope</h2>
+            <h2>Lyrically Dope</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="lil-wayne-design.png" alt="The New Race">
-                    <h3>The New Race</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">"Every finish line is the beginning of a new race." A tribute to the relentless hustle.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-lil-wayne-design.png" alt="DBS POD Store The New Race Lil Wayne Tribute Tee" loading="lazy">
+                    <div class="product-content">
+                        <h3>The New Race</h3>
+                        <p>"Every finish line is the beginning of a new race." A tribute to the relentless hustle.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
                 <div class="product-card">
-                    <img src="drake-kanye-glow.png" alt="Glow">
-                    <h3>Glow</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">"I'm so bright, I'm burnin' out." Inspired by the struggle of the climb and the pressure to grind.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-drake-kanye-glow.png" alt="DBS POD Store Glow Drake Kanye Streetwear Apparel" loading="lazy">
+                    <div class="product-content">
+                        <h3>Glow</h3>
+                        <p>"I'm so bright, I'm burnin' out." Inspired by the struggle of the climb and the pressure to grind.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
                 <div class="product-card">
-                    <img src="rickross-hustler.png" alt="The Hustler">
-                    <h3>The Hustler</h3>
-                    <p style="font-size: 0.8rem; color: #b0b0b0;">"I'm a hustler." An anthem for the self-made, capturing the grit of building from the ground up.</p>
-                    <button class="shop-now">Shop Now</button>
+                    <img src="dbs-pod-store-rickross-hustler.png" alt="DBS POD Store The Hustler Rick Ross Tribute Design" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Hustler</h3>
+                        <p>"I'm a hustler." An anthem for the self-made, capturing the grit of building from the ground up.</p>
+                        <button class="shop-now">Shop Now</button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" style="padding: 40px 20px; text-align: center; border-top: 1px solid #333; margin-top: 40px;">
+        <section id="about">
             <h2>The Vision</h2>
-            <p style="max-width: 600px; margin: 20px auto; line-height: 1.6; color: #b0b0b0;">
-                DBS POD represents the intersection of urban culture and premium craftsmanship. "The DopeBoiz President Era" is more than just clothing; it's a Lifestyle which embodies a statement of growth, resilience, and identity. Every piece is meticulously done with finesse and precision, built for those who lead the way.
+            <p>
+                DBS POD Store represents the intersection of urban culture and premium craftsmanship. "The DopeBoiz President Era" is more than just clothing; it's a lifestyle which embodies a statement of growth, resilience, and identity. Every piece is meticulously done with finesse and precision, built for those who lead the way.
             </p>
         </section>
     </main>
