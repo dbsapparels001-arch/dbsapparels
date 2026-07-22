@@ -3,78 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBS POD Store</title>
+    <title>DBS POD Store | Premium Custom Streetwear & Casual Wear</title>
+    <meta name="description" content="Choose your preferred design, t-shirt colors, and size—at DBS we give customers the freewill to make their own preferences and that's why #everythingDope around us.">
     <style>
-        :root {
-            --primary: #111;
-            --accent: #f59e0b;
-            --bg: #f9fafb;
-            --card-bg: #fff;
-            --text: #1f2937;
+        /* Base Reset & Dark Mode Theme */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-        body { background: var(--bg); color: var(--text); line-height: 1.5; }
-        header { background: var(--primary); color: #fff; padding: 1.5rem; text-align: center; }
-        header h1 { font-size: 1.8rem; letter-spacing: 1px; color: var(--accent); margin-bottom: 0.3rem; }
-        header p { font-size: 0.95rem; color: #d1d5db; max-width: 800px; margin: 0 auto; }
-        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 300px; object-fit: cover; }
-        .card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .card-price { color: var(--accent); font-size: 1.1rem; font-weight: bold; margin-bottom: 1rem; }
-        .btn { background: var(--accent); color: #000; border: none; padding: 0.75rem; border-radius: 4px; font-weight: bold; cursor: pointer; width: 100%; margin-top: auto; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.9; }
-        
-        /* Modal Styles */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; padding: 1rem; }
-        .modal.active { display: flex; }
-        .modal-content { background: #fff; padding: 2rem; border-radius: 8px; width: 100%; max-width: 400px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); position: relative; }
-        .modal-content h3 { margin-bottom: 1rem; font-size: 1.3rem; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; margin-bottom: 0.3rem; font-size: 0.9rem; font-weight: bold; }
-        .form-group input, .form-group select { width: 100%; padding: 0.6rem; border: 1px solid #d1d5db; border-radius: 4px; font-size: 1rem; }
-        .close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6b7280; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0b0b0b;
+            color: #f3f3f3;
+            line-height: 1.5;
+            padding-bottom: 60px;
+        }
+
+        /* Header Styling */
+        header {
+            background: #141414;
+            border-bottom: 1px solid #222;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        header p {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto 12px auto;
+            line-height: 1.4;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Layout & Sections */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-top: 60px;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Product Grid Layout */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: #444;
+        }
+        .product-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            background: #1c1c1c;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+        .product-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .product-card p {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        /* Button Styling */
+        .shop-now {
+            background: #ffffff;
+            color: #0b0b0b;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .shop-now:hover {
+            background: #dcdcdc;
+        }
+
+        /* About Section */
+        #about {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        #about h2 {
+            margin-bottom: 15px;
+        }
+        #about p {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            color: #b0b0b0;
+        }
+
+        /* Manual Checkout Modal Overlay Styling */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .close-modal:hover {
+            color: #fff;
+        }
+        .modal-content h3 {
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #777;
+        }
+        .momo-instructions {
+            background: #111;
+            border-left: 4px solid #f39c12;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #ccc;
+            text-align: left;
+            border-radius: 0 6px 6px 0;
+        }
+        .momo-instructions strong {
+            color: #fff;
+        }
+        .submit-checkout-btn {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .submit-checkout-btn:hover {
+            background: #20ba5a;
+        }
     </style>
 </head>
 <body>
-
     <header>
         <h1>DBS POD Store</h1>
         <p>Choose your preferred design, t-shirt colors, and size—at DBS we give customers the freewill to make their own preferences and that's why #everythingDope around us</p>
+        <nav>
+            <a href="#featured">Featured</a>
+            <a href="#naturally">Naturally</a>
+            <a href="#cultural">Cultural</a>
+            <a href="#lyrics">Lyrics</a>
+            <a href="#about">About</a>
+        </nav>
     </header>
 
-    <div class="container">
-        <div class="grid" id="product-grid">
-            <!-- Products will load dynamically -->
-        </div>
-    </div>
+    <main>
+        <!-- Presidential Lion Collection -->
+        <section id="featured">
+            <h2>The DopeBoiz President Collection</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="dbs-pod-store-golden-lion.png" alt="DBS POD Store Golden Chrome Lion Custom Streetwear Tee" loading="lazy">
+                    <div class="product-content">
+                        <h3>Golden Chrome Lion</h3>
+                        <p>Premium custom streetwear designed for bold, everyday casual wear.</p>
+                        <button class="shop-now" onclick="openCheckout('Golden Chrome Lion')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="dbs-pod-store-silver-lion.png" alt="DBS POD Store Silver Chrome Lion Custom Streetwear Tee" loading="lazy">
+                    <div class="product-content">
+                        <h3>Silver Chrome Lion</h3>
+                        <p>Sleek monochrome bespoke styling built to stand out in any crowd.</p>
+                        <button class="shop-now" onclick="openCheckout('Silver Chrome Lion')">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Checkout Modal -->
-    <div class="modal" id="checkout-modal">
+        <!-- Naturally Dope Section -->
+        <section id="naturally">
+            <h2>Naturally Dope</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="dbs-pod-store-wired-for-creativity.png" alt="DBS POD Store Wired for Creativity Graphic Apparel" loading="lazy">
+                    <div class="product-content">
+                        <h3>Wired for Creativity</h3>
+                        <p>An illustration on how THC and CBD medically benefits the brain's functionability naturally with the presence of Endocannabinoid receptors in every human.</p>
+                        <button class="shop-now" onclick="openCheckout('Wired for Creativity')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="dbs-pod-store-purification.png" alt="DBS POD Store The Purification Graphic Casual Wear" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Purification</h3>
+                        <p>An illustration of the heart showing how THC and CBD medically helps in the purification of our blood stream and regulates the pressure by giving a calming effect.</p>
+                        <button class="shop-now" onclick="openCheckout('The Purification')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="dbs-pod-store-green-eyes.png" alt="DBS POD Store The Green Eyes Custom Streetwear Design" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Green Eyes</h3>
+                        <p>This is an educative illustration on how THC and CBD helps fight against some eye illness and give clear vision.</p>
+                        <button class="shop-now" onclick="openCheckout('The Green Eyes')">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Dope Section -->
+        <section id="cultural">
+            <h2>Culturally Dope</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="dbs-pod-store-rhythmic-heritage.png" alt="DBS POD Store Rhythmic Heritage African Motif Apparel" loading="lazy">
+                    <div class="product-content">
+                        <h3>Rhythmic Heritage</h3>
+                        <p>An illustration of a local "Omele" drum, a three-faced talking drum that emanates African motifs and Adinkra symbols.</p>
+                        <button class="shop-now" onclick="openCheckout('Rhythmic Heritage')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="dbs-pod-store-the-transformation.png" alt="DBS POD Store The Transformation Benin Mask Streetwear" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Transformation</h3>
+                        <p>An abstract illustration of the Benin Kingdom Ivory Mask, modernized, depicting the spiritual transformation that happens behind the mask.</p>
+                        <button class="shop-now" onclick="openCheckout('The Transformation')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="dbs-pod-store-fruit-of-the-loom.png" alt="DBS POD Store The Fruit of the Loom Bespoke Casual Wear" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Fruit of the Loom</h3>
+                        <p>An illustration of a loom being worked on, depicting the transition from ancient weaves into modernized fashion tech with digital currencies.</p>
+                        <button class="shop-now" onclick="openCheckout('The Fruit of the Loom')">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lyrically Dope Section -->
+        <section id="lyrics">
+            <h2>Lyrically Dope</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="dbs-pod-store-lil-wayne-design.png" alt="DBS POD Store The New Race Lil Wayne Tribute Tee" loading="lazy">
+                    <div class="product-content">
+                        <h3>The New Race</h3>
+                        <p>"Every finish line is the beginning of a new race." A tribute to the relentless hustle.</p>
+                        <button class="shop-now" onclick="openCheckout('The New Race')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="dbs-pod-store-drake-kanye-glow.png" alt="DBS POD Store Glow Drake Kanye Streetwear Apparel" loading="lazy">
+                    <div class="product-content">
+                        <h3>Glow</h3>
+                        <p>"I'm so bright, I'm burnin' out." Inspired by the struggle of the climb and the pressure to grind.</p>
+                        <button class="shop-now" onclick="openCheckout('Glow')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="dbs-pod-store-rickross-hustler.png" alt="DBS POD Store The Hustler Rick Ross Tribute Design" loading="lazy">
+                    <div class="product-content">
+                        <h3>The Hustler</h3>
+                        <p>"I'm a hustler." An anthem for the self-made, capturing the grit of building from the ground up.</p>
+                        <button class="shop-now" onclick="openCheckout('The Hustler')">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>The Vision</h2>
+            <p>
+                DBS POD Store represents the intersection of urban culture and premium craftsmanship. "The DopeBoiz President Era" is more than just clothing; it's a lifestyle which embodies a statement of growth, resilience, and identity. Every piece is meticulously done with finesse and precision, built for those who lead the way.
+            </p>
+        </section>
+    </main>
+
+    <!-- Manual Checkout Modal Popup -->
+    <div id="checkoutModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <h3 id="modal-product-title">Complete Order</h3>
-            <form id="order-form" onsubmit="sendToWhatsApp(event)">
+            <button class="close-modal" onclick="closeCheckout()">&times;</button>
+            <h3 id="modalProductTitle">Checkout</h3>
+            
+            <div class="momo-instructions">
+                <strong>Payment Instructions:</strong><br>
+                Send Mobile Money payment to our active line, then submit your details below to finalize your order via WhatsApp.
+            </div>
+
+            <form id="manualOrderForm" onsubmit="submitOrder(event)">
                 <div class="form-group">
-                    <label for="cust-name">Your Name</label>
-                    <input type="text" id="cust-name" required placeholder="Enter your full name">
+                    <label for="clientName">Full Name</label>
+                    <input type="text" id="clientName" required placeholder="Enter your full name">
                 </div>
+
                 <div class="form-group">
-                    <label for="cust-size">Size</label>
-                    <select id="cust-size" required>
-                        <option value="">Select Size</option>
-                        <option value="S">Small (S)</option>
-                        <option value="M">Medium (M)</option>
-                        <option value="L">Large (L)</option>
-                        <option value="XL">Extra Large (XL)</option>
-                        <option value="XXL">2XL</option>
-                    </select>
+                    <label for="clientPhone">Phone Number</label>
+                    <input type="tel" id="clientPhone" required placeholder="e.g. 0241234567">
                 </div>
+
                 <div class="form-group">
-                    <label for="cust-color">T-Shirt Color</label>
-                    <select id="cust-color" required>
+                    <label for="clientColor">T-Shirt Color</label>
+                    <select id="clientColor" required>
                         <option value="">Select Color</option>
                         <option value="Black">Black</option>
                         <option value="White">White</option>
@@ -85,67 +430,66 @@
                         <option value="Yellow">Yellow</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="cust-qty">Quantity</label>
-                    <input type="number" id="cust-qty" value="1" min="1" required>
+                    <label for="clientSize">Apparel Size</label>
+                    <select id="clientSize" required>
+                        <option value="">Select Size</option>
+                        <option value="Small (S)">Small (S)</option>
+                        <option value="Medium (M)">Medium (M)</option>
+                        <option value="Large (L)">Large (L)</option>
+                        <option value="XL">Extra Large (XL)</option>
+                        <option value="XXL">XXL</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn">Proceed to WhatsApp Order</button>
+
+                <div class="form-group">
+                    <label for="clientAddress">Delivery Location / Address</label>
+                    <textarea id="clientAddress" rows="3" required placeholder="Enter town, street, or landmark"></textarea>
+                </div>
+
+                <button type="submit" class="submit-checkout-btn">Complete Order via WhatsApp</button>
             </form>
         </div>
     </div>
 
     <script>
-        const products = [
-            { id: 1, title: "Drake x Kanye Glow", price: "GHS 450", image: "dbs-pod-store-drake-kanye-glow.png" },
-            { id: 2, title: "Fruit of the Loom", price: "GHS 400", image: "dbs-pod-store-fruit-of-the-loom.png" },
-            { id: 3, title: "Golden Lion", price: "GHS 450", image: "dbs-pod-store-golden-lion.png" },
-            { id: 4, title: "Green Eyes", price: "GHS 420", image: "dbs-pod-store-green-eyes.png" },
-            { id: 5, title: "Lil Wayne Design", price: "GHS 450", image: "dbs-pod-store-lil-wayne-design.png" },
-            { id: 6, title: "Purification", price: "GHS 450", image: "dbs-pod-store-purification.png" },
-            { id: 7, title: "Rhythmic Heritage", price: "GHS 380", image: "dbs-pod-store-rhythmic-heritage.png" },
-            { id: 8, title: "Rick Ross Hustler", price: "GHS 450", image: "dbs-pod-store-rickross-hustler.png" }
-        ];
+        let selectedProduct = "";
 
-        let selectedProduct = null;
-
-        const grid = document.getElementById('product-grid');
-        products.forEach(p => {
-            grid.innerHTML += `
-                <div class="card">
-                    <img src="${p.image}" alt="${p.title}">
-                    <div class="card-content">
-                        <div class="card-title">${p.title}</div>
-                        <div class="card-price">${p.price}</div>
-                        <button class="btn" onclick="openModal('${p.title}', '${p.price}')">Shop Now</button>
-                    </div>
-                </div>
-            `;
-        });
-
-        function openModal(title, price) {
-            selectedProduct = { title, price };
-            document.getElementById('modal-product-title').innerText = `Order: ${title}`;
-            document.getElementById('checkout-modal').classList.add('active');
+        function openCheckout(productName) {
+            selectedProduct = productName;
+            document.getElementById('modalProductTitle').innerText = "Order: " + productName;
+            document.getElementById('checkoutModal').style.display = 'flex';
         }
 
-        function closeModal() {
-            document.getElementById('checkout-modal').classList.remove('active');
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
         }
 
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            const name = document.getElementById('cust-name').value;
-            const size = document.getElementById('cust-size').value;
-            const color = document.getElementById('cust-color').value;
-            const qty = document.getElementById('cust-qty').value;
-
-            // REPLACE THE NUMBER BELOW WITH YOUR ACTUAL WHATSAPP NUMBER (include country code, e.g., 233XXXXXXXXX)
-            const whatsappNumber = "233XXXXXXXXX"; 
-
-            const message = `Hello DBS POD Store,%0AI want to place an order:%0A%0A*Product:* ${selectedProduct.title}%0A*Price:* ${selectedProduct.price}%0A*Color:* ${color}%0A*Size:* ${size}%0A*Quantity:* ${qty}%0A*Name:* ${name}`;
+        function submitOrder(event) {
+            event.preventDefault();
             
-            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-            closeModal();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const color = document.getElementById('clientColor').value;
+            const size = document.getElementById('clientSize').value;
+            const address = document.getElementById('clientAddress').value;
+
+            // Replace with your active primary phone number in international format (e.g. 233XXXXXXXXX)
+            const storeWhatsAppNumber = "233XXXXXXXXX"; 
+
+            const message = `Hello DBS POD Store,%0AI want to order:%0A*Product:* ${selectedProduct}%0A*Color:* ${color}%0A*Size:* ${size}%0A%0A*Customer Details:*%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A%0AI have sent/am ready to send the Mobile Money payment. Please confirm!`;
+
+            window.open(`https://wa.me/${storeWhatsAppNumber}?text=${message}`, '_blank');
+            closeCheckout();
+        }
+
+        // Close modal if user clicks outside the modal box
+        window.onclick = function(event) {
+            const modal = document.getElementById('checkoutModal');
+            if (event.target == modal) {
+                closeCheckout();
+            }
         }
     </script>
 </body>
